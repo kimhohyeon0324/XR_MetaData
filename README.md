@@ -21,9 +21,11 @@ Haptics Studio 등 외부 도구에서 사전 제작된 오디오(MP3) 및 햅�
 
 ## 데모 미리보기
 
-| Meta Quest 3 WebXR 인터랙션 화면 | 웹 기반 메타데이터 관리자 UI (Admin) |
+| 1. 메인 3D 가상 공간 화면 | 2. 메타데이터 관리자 UI (Admin) |
 | :---: | :---: |
-| ![Meta Quest WebXR Interaction](docs/images/vr_demo.png) | ![Admin Web Interface](docs/images/admin_ui.png) |
+| ![메인 3D 가상 공간 화면](docs/images/1_main_scene.png) | ![메타데이터 관리자 UI](docs/images/2_admin_ui.png) |
+| **3. VR 컨트롤러 인터랙션 화면** | **4. 메타데이터 상세 편집 화면 (모달)** |
+| ![VR 컨트롤러 인터랙션 화면](docs/images/3_vr_interaction.png) | ![메타데이터 상세 편집 화면](docs/images/4_admin_modal.png) |
 
 ---
 
