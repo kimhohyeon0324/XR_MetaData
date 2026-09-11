@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>XR MetaData — 관리자</title>
+  <style>
+    :root {
+      --bg: #0d0d1f;
+      --surface: #13132b;
+      --border: #222255;
+      --accent: #00BFFF;
+      --accent2: #4488ff;
+      --danger: #ff4444;
+      --text: #e0e0f0;
+      --muted: #888899;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { color: var(--accent); font-size: 1.3rem; letter-spacing: 2px; }
+    header .links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      margin-left: 1.5rem; transition: color 0.2s;
+    }
+    header .links a:hover { color: var(--accent); }
+
+    .toolbar {
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .toolbar input {
+      flex: 1;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .toolbar input:focus { outline: none; border-color: var(--accent); }
+    .btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--accent); color: #000; font-weight: bold; }
+    .btn-danger  { background: var(--danger); color: #fff; }
+    .btn-ghost   { background: var(--surface); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* 카드 그리드 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.2rem;
+      padding: 1.5rem 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 0 12px rgba(0,136,255,0.15);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .card-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card-header h3 { font-size: 1rem; color: var(--accent); }
+    .card-header .shape-badge {
+      font-size: 0.72rem;
+      background: rgba(0,136,255,0.15);
+      color: var(--accent2);
+      border-radius: 4px;
+      padding: 0.15rem 0.45rem;
+      margin-left: auto;
+    }
+
+    .card-desc { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.9rem; }
+
+    .file-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .file-row .icon { width: 16px; text-align: center; }
+    .file-row .path { color: #aaa; word-break: break-all; }
+    .file-row .badge-yes { color: #44ff88; }
+    .file-row .badge-no  { color: #ff4444; }
+
+    .segment-row {
+      font-size: 0.78rem;
+      color: #ffaa44;
+      margin-top: 0.4rem;
+    }
+
+    .tag-row {
+      margin-top: 0.7rem;
+      display: flex; flex-wrap: wrap; gap: 0.3rem;
+    }
+    .tag {
+      font-size: 0.72rem;
+      background: rgba(100,100,200,0.2);
+      color: #8899cc;
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+    }
+
+    .card-footer {
+      margin-top: 0.9rem;
+      display: flex;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+    }
+    .card-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    /* 모달 */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 560px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .modal h2 { color: var(--accent); margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 60px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+    .modal-actions { display: flex; gap: 0.7rem; justify-content: flex-end; margin-top: 1.3rem; }
+
+    /* 토스트 */
+    #toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 200;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; }
+
+    /* 히스토리 패널 */
+    .history-panel {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .history-panel .hist-item { border-bottom: 1px solid var(--border); padding: 0.3rem 0; }
+
+    .empty-state {
+      text-align: center;
+      color: var(--muted);
+      padding: 4rem 2rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>XR MetaData &mdash; 관리자</h1>
+  <div class="links">
+    <a href="/" target="_blank">🌐 VR 씬</a>
+    <a href="/api/metadata" target="_blank">📡 API JSON</a>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input type="text" id="search-input" placeholder="이름, 설명, 태그로 검색…" oninput="renderCards()" />
+  <button class="btn btn-primary" onclick="openCreateModal()">+ 새 오브젝트</button>
+</div>
+
+<div class="grid" id="card-grid"></div>
+<div id="empty" class="empty-state" style="display:none">검색 결과가 없습니다.</div>
+
+<!-- 생성/수정 모달 -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <h2 id="modal-title">새 오브젝트 생성</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" id="f-id" placeholder="obj_my_object" />
+      </div>
+      <div class="form-group">
+        <label>이름</label>
+        <input type="text" id="f-name" placeholder="My Object" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>설명</label>
+      <input type="text" id="f-desc" placeholder="오브젝트 설명" />
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>도형</label>
+        <select id="f-shape">
+          <option value="sphere">sphere (구)</option>
+          <option value="box">box (직육면체)</option>
+          <option value="cylinder">cylinder (실린더)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>색상 (hex)</label>
+        <input type="color" id="f-color" value="#00BFFF" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>MP3 파일 경로</label>
+      <input type="text" id="f-mp3" placeholder="sounds/my_sound.mp3" />
+    </div>
+    <div class="form-group">
+      <label>Haptic 파일 경로</label>
+      <input type="text" id="f-haptic" placeholder="haptics/my_sound.haptic" />
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>구간 시작 (초, 선택)</label>
+        <input type="number" id="f-seg-start" placeholder="0.0" step="0.1" />
+      </div>
+      <div class="form-group">
+        <label>구간 종료 (초, 선택)</label>
+        <input type="number" id="f-seg-end" placeholder="끝까지" step="0.1" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>위치 X (좌우, 미입력 시 자동)</label>
+        <input type="number" id="f-pos-x" placeholder="자동 배치" step="0.1" />
+      </div>
+      <div class="form-group">
+        <label>위치 Y (높이, 기본 1.2)</label>
+        <input type="number" id="f-pos-y" placeholder="1.2" step="0.1" />
+      </div>
+      <div class="form-group">
+        <label>위치 Z (거리, 기본 -3.5)</label>
+        <input type="number" id="f-pos-z" placeholder="-3.5" step="0.1" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>메모 / 특이사항</label>
+      <textarea id="f-notes"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>태그 (쉼표 구분)</label>
+        <input type="text" id="f-tags" placeholder="tag1, tag2" />
+      </div>
+      <div class="form-group">
+        <label>작성자</label>
+        <input type="text" id="f-author" placeholder="연구자A" />
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">취소</button>
+      <button class="btn btn-primary" onclick="saveObject()">저장</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const API = '/api/metadata';
+let allObjects = [];
+let editingId = null;
+
+async function loadAll() {
+  const res = await fetch(API);
+  allObjects = await res.json();
+  renderCards();
+}
+
+function renderCards() {
+  const q = document.getElementById('search-input').value.toLowerCase();
+  const filtered = allObjects.filter(o => {
+    const hay = [o.name, o.description, o.notes, ...(o.tags || [])].join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+
+  const grid = document.getElementById('card-grid');
+  const empty = document.getElementById('empty');
+  grid.innerHTML = '';
+
+  if (filtered.length === 0) {
+    empty.style.display = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  for (const obj of filtered) {
+    grid.appendChild(buildCard(obj));
+  }
+}
+
+function buildCard(obj) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const hasMp3    = !!(obj.files?.mp3);
+  const hasHaptic = !!(obj.files?.haptic);
+  const segStr    = obj.hapticParams?.segmentStart != null
+    ? `⏱ ${obj.hapticParams.segmentStart}s ~ ${obj.hapticParams.segmentEnd ?? '끝'}s`
+    : '';
+
+  const tagsHtml = (obj.tags || []).map(t => `<span class="tag">#${t}</span>`).join('');
+  const histHtml = (obj.history || []).slice(-3).reverse().map(h =>
+    `<div class="hist-item">${h.timestamp?.substring(0,19)} — ${h.modifiedBy}: ${(h.changes||[]).join(', ')}</div>`
+  ).join('') || '<div style="color:#555">수정 기록 없음</div>';
+
+  const modifiedDate = obj.modifiedAt?.substring(0, 10) || '─';
+  const createdDate  = obj.createdAt?.substring(0, 10)  || '─';
+
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="card-dot" style="background:${obj.color || '#888'}"></div>
+      <h3>${obj.name}</h3>
+      <span class="shape-badge">${obj.shape || '─'}</span>
+    </div>
+    <div class="card-desc">${obj.description || '─'}</div>
+
+    <div class="file-row">
+      <span class="icon">🔊</span>
+      <span class="${hasMp3 ? 'badge-yes' : 'badge-no'}">${hasMp3 ? '있음' : '없음'}</span>
+      <span class="path">${obj.files?.mp3 || ''}</span>
+    </div>
+    <div class="file-row">
+      <span class="icon">📳</span>
+      <span class="${hasHaptic ? 'badge-yes' : 'badge-no'}">${hasHaptic ? '있음' : '없음'}</span>
+      <span class="path">${obj.files?.haptic || ''}</span>
+    </div>
+    ${segStr ? `<div class="segment-row">${segStr}</div>` : ''}
+    <div style="font-size:0.75rem; color:var(--accent); margin:0.4rem 0;">📍 3D 좌표: (${obj.position?.x ?? 0}, ${obj.position?.y ?? 1.2}, ${obj.position?.z ?? -3.5})</div>
+
+    <div class="tag-row">${tagsHtml}</div>
+
+    <details style="margin-top:0.7rem">
+      <summary style="font-size:0.78rem;color:var(--muted);cursor:pointer">수정 기록 (${obj.history?.length || 0}건)</summary>
+      <div class="history-panel" style="margin-top:0.4rem">${histHtml}</div>
+    </details>
+
+    <div class="card-footer">
+      <button class="btn btn-ghost" onclick="openEditModal('${obj.id}')">수정</button>
+      <button class="btn btn-danger"  onclick="deleteObject('${obj.id}')">삭제</button>
+    </div>
+    <div class="card-meta">생성: ${createdDate} · ${obj.createdBy || '─'}  &nbsp;|&nbsp;  수정: ${modifiedDate} · ${obj.modifiedBy || '─'}</div>
+  `;
+
+  return card;
+}
+
+function openCreateModal() {
+  editingId = null;
+  document.getElementById('modal-title').textContent = '새 오브젝트 생성';
+  ['f-id','f-name','f-desc','f-mp3','f-haptic','f-notes','f-tags','f-author','f-seg-start','f-seg-end','f-pos-x','f-pos-y','f-pos-z'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('f-color').value = '#00BFFF';
+  document.getElementById('f-shape').value = 'sphere';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function openEditModal(id) {
+  const obj = allObjects.find(o => o.id === id);
+  if (!obj) return;
+  editingId = id;
+  document.getElementById('modal-title').textContent = '오브젝트 수정';
+  document.getElementById('f-id').value      = obj.id;
+  document.getElementById('f-name').value    = obj.name || '';
+  document.getElementById('f-desc').value    = obj.description || '';
+  document.getElementById('f-mp3').value     = obj.files?.mp3 || '';
+  document.getElementById('f-haptic').value  = obj.files?.haptic || '';
+  document.getElementById('f-notes').value   = obj.notes || '';
+  document.getElementById('f-tags').value    = (obj.tags || []).join(', ');
+  document.getElementById('f-author').value  = obj.modifiedBy || '';
+  document.getElementById('f-color').value   = obj.color || '#00BFFF';
+  document.getElementById('f-shape').value   = obj.shape || 'sphere';
+  document.getElementById('f-seg-start').value = obj.hapticParams?.segmentStart ?? '';
+  document.getElementById('f-seg-end').value   = obj.hapticParams?.segmentEnd ?? '';
+  document.getElementById('f-pos-x').value     = obj.position?.x ?? '';
+  document.getElementById('f-pos-y').value     = obj.position?.y ?? '';
+  document.getElementById('f-pos-z').value     = obj.position?.z ?? '';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+async function saveObject() {
+  const id       = document.getElementById('f-id').value.trim();
+  const name     = document.getElementById('f-name').value.trim();
+  const desc     = document.getElementById('f-desc').value.trim();
+  const mp3      = document.getElementById('f-mp3').value.trim();
+  const haptic   = document.getElementById('f-haptic').value.trim();
+  const notes    = document.getElementById('f-notes').value.trim();
+  const tagsRaw  = document.getElementById('f-tags').value;
+  const author   = document.getElementById('f-author').value.trim() || 'unknown';
+  const color    = document.getElementById('f-color').value;
+  const shape    = document.getElementById('f-shape').value;
+  const segStart = document.getElementById('f-seg-start').value;
+  const segEnd   = document.getElementById('f-seg-end').value;
+  const posX     = document.getElementById('f-pos-x').value;
+  const posY     = document.getElementById('f-pos-y').value;
+  const posZ     = document.getElementById('f-pos-z').value;
+
+  if (!id || !name) { toast('ID와 이름은 필수입니다.', true); return; }
+
+  const payload = {
+    id, name,
+    description: desc,
+    shape, color,
+    hasFiles: !!(mp3 || haptic),
+    files: {
+      mp3: mp3 || null,
+      haptic: haptic || null,
+      extra: []
+    },
+    hapticParams: {
+      segmentStart: segStart !== '' ? parseFloat(segStart) : null,
+      segmentEnd:   segEnd   !== '' ? parseFloat(segEnd)   : null,
+    },
+    notes,
+    tags: tagsRaw.split(',').map(t => t.trim()).filter(Boolean),
+    modifiedBy: author,
+  };
+
+  if (posX !== '' || posY !== '' || posZ !== '') {
+    payload.position = {
+      x: posX !== '' ? parseFloat(posX) : 0,
+      y: posY !== '' ? parseFloat(posY) : 1.2,
+      z: posZ !== '' ? parseFloat(posZ) : -3.5,
+    };
+  }
+
+  if (editingId) {
+    await fetch(`${API}/${editingId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    toast('수정되었습니다.');
+  } else {
+    payload.createdBy = author;
+    await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    toast('생성되었습니다.');
+  }
+
+  closeModal();
+  await loadAll();
+}
+
+async function deleteObject(id) {
+  if (!confirm(`"${id}" 오브젝트를 삭제할까요?`)) return;
+  await fetch(`${API}/${id}`, { method: 'DELETE' });
+  toast('삭제되었습니다.');
+  await loadAll();
+}
+
+let toastTimer;
+function toast(msg, isError = false) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.borderColor = isError ? '#ff4444' : 'var(--accent)';
+  el.style.color = isError ? '#ff4444' : 'var(--accent)';
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// 모달 외부 클릭 닫기
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+loadAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "xr-metadata",
+  "version": "1.0.0",
+  "description": "WebXR 3D 오브젝트 햅틱/오디오 메타데이터 저작 도구",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently -n API,VR -c blue,cyan \"nodemon server/index.js\" \"vite\"",
+    "dev:server": "nodemon server/index.js",
+    "dev:client": "vite",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "three": "^0.163.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "concurrently": "^8.2.2",
+    "docx": "^9.7.1",
+    "nodemon": "^3.0.1",
+    "vite": "^5.2.0"
+  }
+}

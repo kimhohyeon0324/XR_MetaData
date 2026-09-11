@@ -1,0 +1,1078 @@
+{
+  "objects": [
+    {
+      "id": "obj_bubbling",
+      "name": "Bubbling",
+      "description": "수중 버블링 진동 오브젝트",
+      "shape": "sphere",
+      "color": "#00bfff",
+      "position": {
+        "x": -4.2,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.4
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/bubbling.mp3",
+        "haptic": "haptics/bubbling.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 0,
+        "segmentEnd": 2
+      },
+      "notes": "수중 버블링 사운드 기반 햅틱. Haptics Studio 2.4.0 생성.",
+      "tags": [
+        "water",
+        "continuous",
+        "bubbling"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-08T06:23:06.137Z",
+      "history": [
+        {
+          "timestamp": "2026-09-08T06:15:50.371Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:16:38.597Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:17:23.719Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:21:10.796Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:21:17.783Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:22:20.487Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:22:55.646Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:23:06.135Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_camera_snap",
+      "name": "Camera Snap",
+      "description": "카메라 셔터 진동 오브젝트",
+      "shape": "box",
+      "color": "#fd9191",
+      "position": {
+        "x": -3,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.4
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/camera_snap.mp3",
+        "haptic": "haptics/camera_snap.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": null,
+        "segmentEnd": null
+      },
+      "notes": "카메라 셔터 클릭 사운드 기반 햅틱. Haptics Studio 2.4.0 생성.",
+      "tags": [
+        "snap",
+        "short",
+        "click"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-08T06:14:49.182Z",
+      "history": [
+        {
+          "timestamp": "2026-09-08T06:14:35.796Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-08T06:14:49.181Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_firework",
+      "name": "Firework",
+      "description": "폭죽 진동 오브젝트",
+      "shape": "cylinder",
+      "color": "#ff69b4",
+      "position": {
+        "x": -1.8,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.25,
+        "y": 0.5,
+        "z": 0.25
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/firework.mp3",
+        "haptic": "haptics/firework.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": null,
+        "segmentEnd": null
+      },
+      "notes": "폭죽 크래클링 사운드 기반 햅틱. Haptics Studio 2.4.0 생성.",
+      "tags": [
+        "firework",
+        "crackling",
+        "burst"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T00:53:48.495Z",
+      "history": [
+        {
+          "timestamp": "2026-09-08T03:41:40.930Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T00:53:48.495Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_explosion_1",
+      "name": "Explosion #1",
+      "description": "1번 폭발: 초반 강한 폭발음과 충격파",
+      "shape": "sphere",
+      "color": "#ff4500",
+      "position": {
+        "x": -0.6,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/explosion.mp3",
+        "haptic": "haptics/explosion.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 0,
+        "segmentEnd": 3.6
+      },
+      "notes": "explosion.mp3 5구간 분리 #1. 0~3.9초 구간.",
+      "tags": [
+        "explosion",
+        "segment-1",
+        "burst"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T00:53:57.902Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T00:53:57.901Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_explosion_2",
+      "name": "Explosion #2",
+      "description": "2번 폭발: 중형 연속 폭발",
+      "shape": "sphere",
+      "color": "#ff6600",
+      "position": {
+        "x": 0.6,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.45,
+        "y": 0.45,
+        "z": 0.45
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/explosion.mp3",
+        "haptic": "haptics/explosion.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 6.5,
+        "segmentEnd": 8.8
+      },
+      "notes": "explosion.mp3 5구간 분리 #2. 4~6초 구간.",
+      "tags": [
+        "explosion",
+        "segment-2",
+        "burst"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T00:54:04.343Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T00:54:04.342Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_explosion_3",
+      "name": "Explosion #3",
+      "description": "3번 폭발: 길고 묵직한 3차 폭발",
+      "shape": "sphere",
+      "color": "#ff8c00",
+      "position": {
+        "x": 1.8,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.55,
+        "y": 0.55,
+        "z": 0.55
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/explosion.mp3",
+        "haptic": "haptics/explosion.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 10.5,
+        "segmentEnd": 14.6
+      },
+      "notes": "explosion.mp3 5구간 분리 #3. 6.7~9초 구간.",
+      "tags": [
+        "explosion",
+        "segment-3",
+        "burst"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T00:54:19.199Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T00:54:19.197Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_explosion_4",
+      "name": "Explosion #4",
+      "description": "4번 폭발: 강력한 4차 연쇄 폭발",
+      "shape": "sphere",
+      "color": "#ff3300",
+      "position": {
+        "x": 3,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 0.6
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/explosion.mp3",
+        "haptic": "haptics/explosion.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 17,
+        "segmentEnd": 21.2
+      },
+      "notes": "explosion.mp3 5구간 분리 #4. 10.8~15초 구간.",
+      "tags": [
+        "explosion",
+        "segment-4",
+        "burst"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T01:38:37.271Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T00:54:29.863Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:38:10.860Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:38:37.270Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_explosion_5",
+      "name": "Explosion #5",
+      "description": "5번 폭발: 대형 폭발 및 감쇠",
+      "shape": "sphere",
+      "color": "#cc0000",
+      "position": {
+        "x": 4.2,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/explosion.mp3",
+        "haptic": "haptics/explosion.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 23.2,
+        "segmentEnd": 27.5
+      },
+      "notes": "explosion.mp3 5구간 분리 #5. 17.3~23초 구간.",
+      "tags": [
+        "explosion",
+        "segment-5",
+        "burst",
+        "final"
+      ],
+      "createdBy": "system",
+      "createdAt": "2026-09-08T12:00:00Z",
+      "modifiedBy": "system",
+      "modifiedAt": "2026-09-09T01:37:59.268Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T01:37:59.268Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obj_datsun",
+      "name": "1972 Datsun 240K GT",
+      "description": "클래식 1972 닛산 닷선 240K GT 스포츠 쿠페 3D 모델",
+      "shape": "sphere",
+      "modelUrl": "/models/datsun/scene.gltf",
+      "color": "#ff3333",
+      "hasFiles": true,
+      "files": {
+        "mp3": "sounds/car.mp3",
+        "haptic": "haptics/car.haptic",
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": 0.8,
+        "segmentEnd": null
+      },
+      "notes": "외부 GLTF 3D 에셋 연동 오브젝트",
+      "tags": [
+        "car",
+        "vehicle",
+        "classic",
+        "gltf"
+      ],
+      "modifiedBy": "system",
+      "position": {
+        "x": 0,
+        "y": 1.2,
+        "z": -1.5
+      },
+      "scale": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.4
+      },
+      "createdBy": "system",
+      "createdAt": "2026-09-09T01:50:00.000Z",
+      "modifiedAt": "2026-09-09T06:11:16.706Z",
+      "history": [
+        {
+          "timestamp": "2026-09-09T01:51:20.354Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:51:34.693Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:51:43.131Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:51:55.948Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T01:59:33.380Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:07:49.237Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:08:34.378Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:08:42.954Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:09:28.182Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:22:04.761Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:24:19.666Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:25:08.194Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:26:57.506Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:30:39.074Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:33:37.306Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:40:37.511Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:44:14.528Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T02:46:53.876Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:09:51.395Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:10:07.541Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:10:19.523Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:10:45.987Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:11:03.400Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        },
+        {
+          "timestamp": "2026-09-09T06:11:16.705Z",
+          "modifiedBy": "system",
+          "changes": [
+            "id",
+            "name",
+            "description",
+            "shape",
+            "color",
+            "hasFiles",
+            "files",
+            "hapticParams",
+            "notes",
+            "tags",
+            "position"
+          ]
+        }
+      ]
+    }
+  ]
+}

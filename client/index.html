@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XR MetaData — VR Scene</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+    canvas { display: block; }
+
+    /* 로딩 오버레이 */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      z-index: 1000;
+      transition: opacity 0.3s;
+    }
+    #overlay h1 { font-size: 2rem; margin-bottom: 0.4rem; letter-spacing: 2px; }
+    #overlay p  { font-size: 0.95rem; color: #aaa; margin-bottom: 1.5rem; }
+    #overlay .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid rgba(0, 191, 255, 0.2);
+      border-top-color: #00BFFF;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #overlay .links { display: flex; gap: 1rem; }
+    #overlay .links a {
+      color: #00BFFF; text-decoration: none; font-size: 0.85rem;
+      border: 1px solid #00BFFF; padding: 0.3rem 0.8rem; border-radius: 4px;
+    }
+    #overlay .links a:hover { background: rgba(0,191,255,0.15); }
+
+    /* PC 및 상단 바로가기 바 */
+    #top-bar {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      display: flex;
+      gap: 0.8rem;
+      z-index: 100;
+    }
+    #top-bar a {
+      color: #00BFFF;
+      text-decoration: none;
+      font-size: 0.82rem;
+      background: rgba(10, 10, 26, 0.75);
+      border: 1px solid rgba(0, 191, 255, 0.4);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+    #top-bar a:hover {
+      background: rgba(0, 191, 255, 0.2);
+    }
+
+    #info-panel {
+      position: fixed;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      display: none;
+      z-index: 50;
+      max-width: 520px;
+      text-align: center;
+      border: 1px solid rgba(0,191,255,0.3);
+      backdrop-filter: blur(4px);
+    }
+    #info-panel.active { display: block; }
+    #info-panel .obj-name { font-size: 1.05rem; font-weight: bold; color: #00BFFF; margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+  <!-- 로딩 오버레이 (데이터 로딩 완료 시 자동 사라짐) -->
+  <div id="overlay">
+    <h1>XR MetaData</h1>
+    <p>VR 오브젝트 및 사운드 로딩 중...</p>
+    <div class="spinner"></div>
+    <div class="links">
+      <a href="/admin" target="_blank">🗂 관리자 페이지</a>
+      <a href="/api/metadata" target="_blank">📡 API</a>
+    </div>
+  </div>
+
+  <!-- 상단 네비게이션 -->
+  <div id="top-bar">
+    <a href="/admin" target="_blank">🗂 관리자 페이지</a>
+    <a href="/api/metadata" target="_blank">📡 API</a>
+  </div>
+
+  <div id="info-panel">
+    <div class="obj-name" id="panel-name"></div>
+    <div id="panel-desc"></div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
