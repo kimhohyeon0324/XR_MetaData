@@ -19,6 +19,14 @@ Haptics Studio 등 외부 도구에서 사전 제작된 오디오(MP3) 및 햅�
 
 ---
 
+## 데모 미리보기
+
+| Meta Quest 3 WebXR 인터랙션 화면 | 웹 기반 메타데이터 관리자 UI (Admin) |
+| :---: | :---: |
+| ![Meta Quest WebXR Interaction](docs/images/vr_demo.png) | ![Admin Web Interface](docs/images/admin_ui.png) |
+
+---
+
 ## 주요 기능
 
 ### 1. WebXR 몰입형 인터랙션 환경
