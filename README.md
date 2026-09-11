@@ -1,4 +1,4 @@
-# 🥽 XR MetaData (WebXR 햅틱·오디오 메타데이터 저작 도구)
+# XR MetaData (WebXR 햅틱·오디오 메타데이터 저작 도구)
 
 > **WebXR 기반 3D 가상 공간에서 오브젝트에 연계된 햅틱 피드백 및 오디오 메타데이터를 직관적으로 저작하고 실시간으로 검증하는 풀스택 연구용 도구**
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 📌 프로젝트 소개
+## 프로젝트 소개
 
 기존의 햅틱 콘텐츠 저작 방식은 2D 타임라인 편집기(예: DAW, Haptics Studio)에서 파형을 조율하는 방식이 주를 이루어, 실제 3D 가상 공간의 물리적 오브젝트와의 공간적 연계성을 직관적으로 파악하기 어려웠습니다.
 
@@ -17,12 +17,12 @@
 
 ---
 
-## ✨ 주요 기능
+## 주요 기능
 
 ### 1. WebXR 몰입형 인터랙션 환경
-* **Meta Quest 최적화**: 6DoF 헤드 트래킹 및 컨트롤러 레이저 포인팅, 초록색 타깃 커서 지원
-* **시각 피드백**: 오브젝트 조준(Hover) 및 선택 시 부드러운 발광(Emissive) 플래시 (250ms 자동 복원)
-* **VR 3D 정보창**: 오브젝트 선택 시 VR 공간 내 실시간 메타데이터 패널(Sprite Canvas) 팝업
+* **Meta Quest 최적화**: 6DoF 헤드 트래킹 및 컨트롤러 레이저 포인팅, 타깃 커서 지원
+* **시각 피드백**: 오브젝트 조준(Hover) 및 선택 시 발광(Emissive) 플래시 (250ms 자동 복원)
+* **VR 3D 정보창**: 오브젝트 선택 시 VR 공간 내 실시간 메타데이터 패널(Sprite Canvas) 표시
 
 ### 2. 오디오-햅틱 멀티모달 피드백 연동
 * **통합 타임라인 매핑**: 오브젝트마다 사운드와 진동의 재생 구간(`segmentStart` ~ `segmentEnd`)을 일치시켜 동시 출력
@@ -39,7 +39,7 @@
 
 ---
 
-## 🏗 시스템 아키텍처
+## 시스템 아키텍처
 
 ```
 [ 관리자 (Admin UI) ] ──(REST API)──> [ Express 백엔드 서버 (3001) ] ──> [ metadata.json ]
@@ -53,7 +53,7 @@
 
 ---
 
-## 🚀 빠른 시작 (Getting Started)
+## 빠른 시작 (Getting Started)
 
 ### 사전 요구사항
 * [Node.js](https://nodejs.org/) v20.0.0 이상
@@ -65,7 +65,7 @@
 git lfs install
 
 # 저장소 클론
-git clone https://github.com/your-username/XR_MetaData.git
+git clone https://github.com/kimhohyeon0324/XR_MetaData.git
 cd XR_MetaData
 
 # 의존성 설치
@@ -84,7 +84,7 @@ npm run dev
 
 ---
 
-## 🥽 Meta Quest 접속 가이드 (중요)
+## Meta Quest 접속 가이드
 
 WebXR 환경을 Meta Quest 2 / 3에서 정상적으로 구동하려면 아래 보안 및 네트워크 조건을 확인해야 합니다.
 
@@ -104,7 +104,7 @@ WebXR 환경을 Meta Quest 2 / 3에서 정상적으로 구동하려면 아래 �
 
 ---
 
-## 📦 대용량 3D 파일 관리 (Git LFS)
+## 대용량 3D 파일 관리 (Git LFS)
 
 본 프로젝트에는 외부 고해상도 차량 모델(`free_1972_datsun_240k_gt/scene.bin`, 약 62.5MB)이 포함되어 있습니다.
 
@@ -113,7 +113,7 @@ WebXR 환경을 Meta Quest 2 / 3에서 정상적으로 구동하려면 아래 �
 
 ---
 
-## 📄 외부 에셋 라이선스 (Third-Party Credits)
+## 외부 에셋 라이선스 (Third-Party Credits)
 
 프로젝트에 활용된 외부 3D 에셋은 해당 라이선스 규정을 준수하여 사용되었습니다:
 
@@ -124,6 +124,6 @@ WebXR 환경을 Meta Quest 2 / 3에서 정상적으로 구동하려면 아래 �
 
 ---
 
-## 📝 라이선스
+## 라이선스
 
 본 프로젝트의 소스코드는 MIT License를 따릅니다.
