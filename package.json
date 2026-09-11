@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "WebXR 3D 오브젝트 햅틱/오디오 메타데이터 저작 도구",
   "main": "server/index.js",
+  "author": "kimhohyeon0324 <kimhohyun0324@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kimhohyeon0324/XR_MetaData.git"
+  },
   "scripts": {
     "dev": "concurrently -n API,VR -c blue,cyan \"nodemon server/index.js\" \"vite\"",
     "dev:server": "nodemon server/index.js",
