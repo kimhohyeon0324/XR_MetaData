@@ -161,7 +161,7 @@ npm run dev
 
 ## Author & Contact
 
-* **개발자**: 김정현
+* **개발자**: 김호현
 * **GitHub**: [kimhohyeon0324](https://github.com/kimhohyeon0324)
 * **저장소 링크**: [XR_MetaData](https://github.com/kimhohyeon0324/XR_MetaData)
 * **License**: MIT
