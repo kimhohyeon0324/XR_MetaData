@@ -39,3 +39,8 @@ gen_report.js
 read_docx.js
 extract_img.js
 check_media.js
+
+# Study Documents & Workbooks (개인 학습서 및 가이드 제외)
+*_Workbook.md
+*_Guide.md
+XR_MetaData_Study_Workbook.md
