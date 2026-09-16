@@ -1,7 +1,7 @@
 # XR_MetaData: WebXR 햅틱·오디오 메타데이터 저작 도구
 
 > **WebXR 기반 3D 가상 공간에서 오브젝트에 연계된 햅틱 피드백 및 오디오 메타데이터를 직관적으로 저작하고 실시간으로 검증하는 풀스택 연구용 도구**  
-> Three.js 및 Web Audio / WebXR Gamepad API를 기반으로, 외부 햅틱·사운드 에셋을 3D 오브젝트에 매핑하고 60ms 윈도우 슬라이싱과 프록시 히트박스를 통해 Meta Quest에서 안정적인 90fps 멀티모달 상호작용을 보장합니다.
+> Three.js 및 Web Audio / WebXR Gamepad API를 기반으로, 외부 햅틱·사운드 에셋을 3D 오브젝트에 매핑하고 60ms 윈도우 슬라이싱과 프록시 히트박스를 통해 Meta Quest에서 안정적인 90fps 멀티모달 상호작용 보장.
 
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
 [![Three.js](https://img.shields.io/badge/Three.js-r163-black.svg)](https://threejs.org/)
@@ -134,7 +134,7 @@ npm install
 ```bash
 npm run dev
 ```
-> `npm run dev` 실행 시 백엔드 API 서버(포트 3001)와 Vite 프론트엔드 서버(포트 5173)가 동시에 실행되며, 현재 PC의 실제 네트워크 IP가 콘솔에 자동 출력됩니다.
+> `npm run dev` 실행 시 백엔드 API 서버(포트 3001)와 Vite 프론트엔드 서버(포트 5173)가 동시 실행되며, 현재 PC의 실제 네트워크 IP가 콘솔에 자동 출력.
 
 * **PC 3D 뷰어**: `https://localhost:5173/`
 * **관리자 페이지 (Admin UI)**: `https://localhost:5173/admin`
@@ -145,22 +145,22 @@ npm run dev
 ## 7. Meta Quest 접속 가이드
 
 1. **동일한 로컬 네트워크(Wi-Fi) 연결**:
-   - 서버를 구동 중인 PC와 Meta Quest 헤드셋이 **반드시 같은 공유기(Wi-Fi)** 에 연결되어 있어야 합니다.
+   - 서버를 구동 중인 PC와 Meta Quest 헤드셋이 **반드시 같은 공유기(Wi-Fi)** 에 연결되어 있어야 함.
 2. **Quest 브라우저에서 접속**:
-   - 헤드셋을 착용하고 오큘러스 브라우저 주소창에 터미널에 출력된 IP 주소를 입력합니다:
+   - 헤드셋을 착용하고 오큘러스 브라우저 주소창에 터미널에 출력된 IP 주소 입력:
      ```
      https://<PC_로컬_IP>:5173
      ```
 3. **자체 서명 SSL 인증서 승인 (최초 1회 필수)**:
-   - 첫 접속 시 *"연결이 비공개로 설정되어 있지 않습니다"* 경고가 표시될 경우, 화면 하단의 **[고급(Advanced)]** 클릭 후 **[<PC_IP> (안전하지 않음)으로 이동]** 을 선택하여 승인합니다.
+   - 첫 접속 시 *"연결이 비공개로 설정되어 있지 않습니다"* 경고 표시 시, 화면 하단의 **[고급]** 클릭 후 **[<PC_IP> (안전하지 않음)으로 이동]** 선택하여 승인.
 4. **VR 진입**:
-   - 화면 중앙 하단의 **`ENTER VR`** 버튼을 클릭하여 몰입형 3D 인터랙션 세션으로 진입합니다.
+   - 화면 중앙 하단의 **`ENTER VR`** 버튼 클릭하여 몰입형 3D 인터랙션 세션 진입.
 
 ---
 
 ## 8. 외부 에셋 라이선스
 
-프로젝트에 활용된 외부 3D 에셋은 해당 라이선스 규정을 준수하여 사용되었습니다:
+프로젝트에 활용된 외부 3D 에셋은 해당 라이선스 규정을 준수하여 사용:
 
 * **1972 Datsun 240K GT 3D Model**:
   - **저작자**: Karol Miklas ([Sketchfab Profile](https://sketchfab.com/karolmiklas))
@@ -171,6 +171,6 @@ npm run dev
 
 ## 라이선스
 
-본 프로젝트의 소스코드는 [MIT License](LICENSE)를 따릅니다.
+본 프로젝트의 소스코드는 [MIT License](LICENSE) 준수.
 
 
