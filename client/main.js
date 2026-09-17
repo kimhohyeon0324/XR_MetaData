@@ -180,14 +180,19 @@ function setupControllers() {
   }
 }
 
+//260917 day01 review : 하이폴리 메쉬 직접 순회 시 발생하는 삼각형 루프 병목을 방지, 단일 히트박스만 검사하여 프레임 레이턴시를 방어 
 function castRay(controller) {
+  // review: 현재 프레임 컨트롤러의 최신 트랜스폼을 행렬에 즉시 동기화 (누락 시: 컨트롤러 움직임이 1프레임 늦게 따라오는 래그 발생)
   controller.updateMatrixWorld();
+
+  // 회전 성분만 분리하여 -Z 전방 벡터에 적용 (누락 시: 위치 이동 값이 방향 벡터에 간섭되어 광선 각도 왜곡, 광선이 전방을 향하도록)
   tempMatrix.identity().extractRotation(controller.matrixWorld);
   raycaster.ray.origin.setFromMatrixPosition(controller.matrixWorld);
   raycaster.ray.direction.set(0, 0, -1).applyMatrix4(tempMatrix);
+  
   raycaster.camera = camera;
 
-  // 초고속 히트박스 레이캐스팅: 수십만 개 메쉬 대신 가벼운 히트박스만 단일 레벨 검사
+  // carHitbox 단일 레벨만 검사 (두 번째 인자가 true이거나 원본 메쉬를 검사할 경우 - 수만개 삼각형 루프로 인해 메인 스레드 병목 발생)
   const hits = raycaster.intersectObjects(raycastTargets, false);
   return hits[0] ?? null;
 }

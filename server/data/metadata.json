@@ -1073,6 +1073,74 @@
           ]
         }
       ]
+    },
+    {
+      "id": "obj_datsun",
+      "name": "1972 Datsun 240K GT",
+      "description": "",
+      "shape": "sphere",
+      "color": "#00bfff",
+      "hasFiles": false,
+      "files": {
+        "mp3": null,
+        "haptic": null,
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": null,
+        "segmentEnd": null
+      },
+      "notes": "",
+      "tags": [],
+      "modifiedBy": "unknown",
+      "createdBy": "unknown",
+      "position": {
+        "x": 5.4,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.4
+      },
+      "createdAt": "2026-09-15T07:31:57.179Z",
+      "modifiedAt": "2026-09-15T07:31:57.179Z",
+      "history": []
+    },
+    {
+      "id": "obj_bubbling",
+      "name": "Bubbling",
+      "description": "",
+      "shape": "box",
+      "color": "#00bfff",
+      "hasFiles": false,
+      "files": {
+        "mp3": null,
+        "haptic": null,
+        "extra": []
+      },
+      "hapticParams": {
+        "segmentStart": null,
+        "segmentEnd": null
+      },
+      "notes": "",
+      "tags": [],
+      "modifiedBy": "unknown",
+      "createdBy": "unknown",
+      "position": {
+        "x": 6.6,
+        "y": 1.2,
+        "z": -3.5
+      },
+      "scale": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.4
+      },
+      "createdAt": "2026-09-15T07:32:43.085Z",
+      "modifiedAt": "2026-09-15T07:32:43.085Z",
+      "history": []
     }
   ]
 }
