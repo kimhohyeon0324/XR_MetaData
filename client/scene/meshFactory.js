@@ -117,27 +117,31 @@ export function createCustomMesh(obj, raycastTargets) {
     const loader = new GLTFLoader();
     loader.load(modelUrl, (gltf) => {
       const model = gltf.scene;
+      //260918 day02 review : 외부 에셋의 크기로 부터 동일한 스케일의 히트박스 육면체를 생성하여 연산 효율을 높임, 히트박스를 부모group에 넣어 모델의 변환행렬이 히트박스에도 적용 되도록 함
+      // 축 정렬 바운딩 박스 크기 및 중심 추출
       const bbox = new THREE.Box3().setFromObject(model);
       const size = bbox.getSize(new THREE.Vector3());
       const center = bbox.getCenter(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
 
+      // 씬 내 일관된 스케일 규격화 및 피벗 원점 정렬
       const targetSize = 1.0;
       const scaleFactor = targetSize / (maxDim || 1);
       model.scale.setScalar(scaleFactor);
 
-      model.position.x = -center.x * scaleFactor;
+      model.position.x = -center.x * scaleFactor; // 부모 group의 중심점과 모델의 중심점을 일치시킴
       model.position.y = -center.y * scaleFactor;
       model.position.z = -center.z * scaleFactor;
-
+      
+      // 단일 투명 히트박스 지오메트리 생성 및 바인딩
       const carHitbox = new THREE.Mesh(
-        new THREE.BoxGeometry(size.x * scaleFactor, size.y * scaleFactor, size.z * scaleFactor),
-        new THREE.MeshBasicMaterial({ visible: false })
+        new THREE.BoxGeometry(size.x * scaleFactor, size.y * scaleFactor, size.z * scaleFactor), // 불러온 모델의 크기와 일치하는 박스를 생성
+        new THREE.MeshBasicMaterial({ visible: false }) // 렌더시 화면에 보이지 않도록
       );
       carHitbox.userData.isHitbox = true;
       carHitbox.userData.objectId = obj.id;
-      group.add(carHitbox);
-      if (raycastTargets) raycastTargets.push(carHitbox);
+      group.add(carHitbox); // 히트박스를 Datsun 메쉬의 부모인 group에 자식 노드로 묶음
+      if (raycastTargets) raycastTargets.push(carHitbox); // 컨트롤러 광선은 박스만 연산함
 
       model.traverse((child) => {
         if (child.isMesh && child.material) {
